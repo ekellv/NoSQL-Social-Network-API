@@ -1,5 +1,5 @@
 // requiring mongoose package
-const { Schema, model, trusted } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 // User Schema 
 
