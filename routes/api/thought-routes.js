@@ -1,8 +1,7 @@
 // requiring the express router
-const router = require('express').Router;
+const router = require('express').Router();
 
 // importing Thought controller functions 
-
 const { 
     getThoughts,
     getThoughtbyId,
@@ -12,24 +11,35 @@ const {
     addReaction,
     deleteReaction
 } = require('../../controllers/thought-controller');
-const { create } = require('../../models/User');
 
 // Thought Routes //
 
 // (GET) path: localhost:3001/api/thoughts
-router.route('/').get(getThoughts);
+router
+    .route('/')
+    .get(getThoughts);
 
 // (GET)(PUT)(DELETE) path: localhost:3001/thoughts/:id
-router.route('/:id').get(getThoughtbyId).put(updateThought).delete(deleteThought);
+router
+    .route('/:id')
+    .get(getThoughtbyId)
+    .put(updateThought)
+    .delete(deleteThought);
 
 // (POST) path: localhost:3001/api/thoughts/:userId
-router.route('/:userId').post(createThought);
+router
+    .route('/:userId')
+    .post(createThought);
 
 // (POST) path: localhost:3001/api/thoughts/:thoughtId/reactions
-router.route('/:thoughtId/reactions').post(addReaction);
+router
+    .route('/:thoughtId/reactions')
+    .post(addReaction);
 
 // (DELETE) path: localhost:3001/api/thoughts/:thoughtId/reactionId
-router.route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
+router
+    .route('/:thoughtId/reactions/:reactionId')
+    .delete(deleteReaction);
 
 // export thought routes 
 module.exports = router; 
