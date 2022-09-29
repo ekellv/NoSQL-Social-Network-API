@@ -1,24 +1,33 @@
-const express = require('express');
-const mongoose = require('mongoose');
+// EXPRESS 
+    const express = require('express')
+    const app = express()
+    const PORT = process.env.PORT || 3001
+    app.use(express.json())
+    app.use(express.urlencoded({ extended: true }))
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+// MONGOOSE 
+    const mongoose = require('mongoose')
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+    mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Social-Network-Api', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
 
-app.use(express.static('public'));
+    mongoose.connection.on('connected', () =>
+    console.log('Connected to MongoDB Endpoint')
+    );
 
+    mongoose.connection.on('error', (err) =>
+    console.log(`MONGOOSE DISCONNECTED ERROR: ${err}`)
+    );
+
+    mongoose.set('debug', true)
+
+// FILES
 app.use(require('./routes'));
 
-// Connect mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-api', {
-  useFindAndModify: false,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
 
-// Log mongoose queries
-mongoose.set('debug', true);
-
-app.listen(PORT, () => console.log(`Connected on localhost:${PORT}`));
+// Server Listen 
+app.listen(PORT, () => {
+    console.log((`Connected on localhost:${PORT}`))
+})

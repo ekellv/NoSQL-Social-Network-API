@@ -7,7 +7,7 @@ const userRoutes = require('./user-routes');
 
 // route prefixes 
 router.use('/thoughts', thoughtRoutes);
-router.user('/users', userRoutes);
+router.use('/users', userRoutes);
 
 // exporting routes
 module.exports = router; 

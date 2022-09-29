@@ -66,7 +66,7 @@ const userController = {
             console.log(err);
             res.status(400).json(err);
         });
-    }
+    },
 
     // delete a single User through its ID
     deleteUser({params}, res) {
@@ -82,12 +82,12 @@ const userController = {
             console.log(err);
             res.status(400).json(err);
         });
-    }
+    },
 
     // add a friend for a specific user by using the User's id
     addFriend({params}, res) {
         User.findOneAndUpdate({_id: params.id}, {$push: {friends: params.friendsId}}, {new: true})
-        .populate({path: 'friends', select('-__v')})
+        .populate({path: 'friends', select: ('-__v')})
         .select('-__v')
         .then(dbUserData => {
             if (!dbUserData) {
@@ -100,12 +100,12 @@ const userController = {
             console.log(err);
             res.status(400).json(err);
         });
-    }
+    },
 
     // delete a single user's friend
     deleteFriend({params}, res) {
         User.findOneAndUpdate({_id: params.id}, {$pull: {friends: params.friendsId}}, {new: true})
-        .populate({path: 'friends', select('-__v')})
+        .populate({path: 'friends', select: ('-__v')})
         .select('-__v')
         .then(dbUserData => {
             if (!dbUserData) {

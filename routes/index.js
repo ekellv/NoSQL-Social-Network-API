@@ -5,7 +5,7 @@ const router = require('express').Router();
 const apiRoutes = require('./api')
 
 // route prefix
-const apiRoutes = require('./api', apiRoutes);
+router.use('./api', apiRoutes);
 
 // 404 message if there's an error in routing 
 router.use((req,res) => {
