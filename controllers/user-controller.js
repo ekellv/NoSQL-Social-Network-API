@@ -102,8 +102,8 @@ const userController = {
         });
     }
 
-    // update a single user's friends
-    updateFriend({params}, res) {
+    // delete a single user's friend
+    deleteFriend({params}, res) {
         User.findOneAndUpdate({_id: params.id}, {$pull: {friends: params.friendsId}}, {new: true})
         .populate({path: 'friends', select('-__v')})
         .select('-__v')
