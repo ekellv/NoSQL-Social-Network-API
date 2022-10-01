@@ -7,7 +7,8 @@ Using mongoose, this simple API allows users to share their thoughts, make react
 ![Github license](http://img.shields.io/badge/License-MIT-yellow.svg)
 
 [The User Routes are demonstrated here.](https://drive.google.com/file/d/1Tagj6hT7cnEhnswq09YD7IDFnyRhjf0Q/view)
-[The Thought Routes are demonstrated here.](https://drive.google.com/file/d/1Tagj6hT7cnEhnswq09YD7IDFnyRhjf0Q/view)
+
+[The Thought Routes are demonstrated here.](https://drive.google.com/file/d/1c99RzeG0OCJwfRB4AHCSxECsgHzpCBR0/view?usp=sharing)
 
 ## Contents
 
