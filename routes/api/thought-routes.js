@@ -31,11 +31,11 @@ router
 router
     .route('/:thoughtId/reactions')
     .post(addReaction)
-       .delete(deleteReaction);
 
-// (DELETE) path: localhost:3001/api/thoughts/:thoughtId/reactionId
+
+// (DELETE) path: localhost:3001/api/thoughts/:thoughtId/reactions/reactionId
 router
-    .route('/:thoughtId/reactions/:reactionId')
+    .route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
  
 
 // export thought routes 

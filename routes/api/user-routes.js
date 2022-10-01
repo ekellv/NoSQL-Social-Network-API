@@ -28,7 +28,6 @@ router
 // (POST)(DELETE) route paths: localhost:3001/api/users/:userId/friends/:friendId 
 
 router
-router
     .route("/:id/friends/:friendsId")
     .post(addFriend)
     .delete(deleteFriend);
