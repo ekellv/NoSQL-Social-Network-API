@@ -61,9 +61,9 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Visuals:
 
-![Thought Routes Screenshot](assets\thought-routes.png)
+![thought-routes](https://user-images.githubusercontent.com/103372188/193420196-b024c2c8-8e3d-43a6-8cd8-21fd030c1587.png)
 
-![User Routes Screenshot](assets\user-routes.png)
+![user-routes](https://user-images.githubusercontent.com/103372188/193420224-4ff4cdff-46c3-4cb1-88a7-aaeaecc9ffd7.png)
 
 ## Technologies
 
