@@ -1,19 +1,14 @@
 {
   "name": "social-network-api",
-  "version": "1.0.1",
-  "description": "NoSQL Project",
-  "main": "server.js",
-  "license": "MIT",
-  "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "express": "^4.17.3",
-    "moment": "^2.29.1",
-    "mongoose": "^6.2.9"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.9"
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

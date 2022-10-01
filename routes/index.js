@@ -1,16 +1,11 @@
-// require express router
-const router = require('express').Router();
+const router = require("express").Router();
 
-// pulling in api routes 
-const apiRoutes = require('./api')
+const apiRoutes = require("./api");
 
-// route prefix
-router.use('./api', apiRoutes);
+router.use("/api", apiRoutes);
 
-// 404 message if there's an error in routing 
-router.use((req,res) => {
-    res.status(404).send('<h1>404 Error! Please try again!</h1>'); 
+router.use((req, res) => {
+  res.status(404).send("<h2>404 Error!</h2>");
 });
 
-// exporting router 
-module.exports = router; 
+module.exports = router;

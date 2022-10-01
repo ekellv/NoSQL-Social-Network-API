@@ -1,13 +1,8 @@
-// express router
-const router = require('express').Router();
+const router = require("express").Router();
+const userRoutes = require("./user-routes");
+const thoughtRoutes = require("./thought-routes");
 
-// pulling in Thought & User routes 
-const thoughtRoutes = require('./thought-routes');
-const userRoutes = require('./user-routes');
+router.use("/users", userRoutes);
+router.use("/thoughts", thoughtRoutes);
 
-// route prefixes 
-router.use('/thoughts', thoughtRoutes);
-router.use('/users', userRoutes);
-
-// exporting routes
-module.exports = router; 
+module.exports = router;
