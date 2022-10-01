@@ -8,10 +8,12 @@ const thoughtController = {
     getThoughts(req, res) {
         Thought.find({})
             // populate thoughts w associated reactions 
-            .populate({path: 'reactions', select: '-__v'})
+            .populate({
+                path: 'reactions', 
+                select: '-__v'})
             // removes the version key in the returned thoughts
             .select('-__v')
-            .then(dbThoughtData => res.json(dbThoughtData))
+            .then((dbThoughtData) => res.json(dbThoughtData))
             .catch(err => {
                 console.log(err);
                 res.status(500).json(err);
@@ -19,11 +21,13 @@ const thoughtController = {
         },
 
     // return a Thought based on its ID
-    getThoughtbyId({ params }, res ) {
+    getThoughtbyId({ params }, res) {
         Thought.findOne({ _id: params.id })
-        .populate({path: 'reactions', select: '-__v'})
+        .populate({
+            path: 'reactions', 
+            select: '-__v'})
         .select('-__v')
-        .then(dbThoughtData => {
+        .then((dbThoughtData) => {
             if(!dbThoughtData) {
                 res.status(404).json({message: 'No thoughts found with this ID.'});
                 return;

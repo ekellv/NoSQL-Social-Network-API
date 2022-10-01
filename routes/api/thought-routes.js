@@ -17,7 +17,8 @@ const {
 // (GET) path: localhost:3001/api/thoughts
 router
     .route('/')
-    .get(getThoughts);
+    .get(getThoughts)
+    .post(createThought);
 
 // (GET)(PUT)(DELETE) path: localhost:3001/thoughts/:id
 router
@@ -25,11 +26,6 @@ router
     .get(getThoughtbyId)
     .put(updateThought)
     .delete(deleteThought);
-
-// (POST) path: localhost:3001/api/thoughts/:userId
-router
-    .route('/:userId')
-    .post(createThought);
 
 // (POST) path: localhost:3001/api/thoughts/:thoughtId/reactions
 router

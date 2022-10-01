@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 // importing User controller functions
 const {
-    getUsers,
+    getAllUsers,
     getUserbyId, 
     createUser,
     updateUser,
@@ -15,7 +15,7 @@ const {
 // (GET)(POST) route paths: localhost:3001/api/users
 router
     .route('/')
-    .get(getUsers)
+    .get(getAllUsers)
     .post(createUser);
 
 // (GET)(PUT)(DELETE) route paths: localhost:3001/api/users/:id

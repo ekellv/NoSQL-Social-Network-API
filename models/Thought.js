@@ -1,6 +1,6 @@
 // dependencies imported
 const { Schema, model, Types } = require('mongoose');
-const moment = require('moment');
+const formatDate = require('../utils/formatDate');
 
 // Reaction Schema 
 const ReactionSchema = new Schema({
@@ -9,19 +9,19 @@ const ReactionSchema = new Schema({
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId()
     },
-    reactionText: {
+    reactionBody: {
         type: String,
         required: true,
-        maxlength: 300
+        maxlength: 280,
     },
     username: {
         type: String,
-        required: true
+        required: true,
     },
     createdAt:{
         type: Date,
         default: Date.now,
-        get: (createdAtVal) => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+        get: (createdAtVal) => formatDate(createdAtVal),
     },
 },
 {
@@ -35,26 +35,26 @@ const ThoughtSchema = new Schema ({
     thoughtText:{ 
         type: String,
         required: true,
-        maxlength: 500,
+        maxlength: 280,
         minlength: 1
     },
     createdAt: {
         type: Date,
         default: Date.now,
-        get: (createdAtVal) => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+        get: (createdAtVal) => formatDate(createdAtVal),
     },
     username: {
         type: String,
-        required: true
+        required: true,
     },
     reactions: [ReactionSchema]
 },
 {
     toJSON:{
         virtuals: true,
-        getters: true
+        getters: true,
     },
-    id: false
+    id: false,
 });
 
 // setting virtual to return reaction count

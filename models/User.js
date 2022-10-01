@@ -8,37 +8,38 @@ const UserSchema = new Schema({
         type: String,
         unique: true,
         required: true, 
-        trim: true
+        trim: true,
     },
     email: {
         type: String,
         unique: true,
         required: true,
         // regex to ensure user-entered email is a valid email structure 
-        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/]
+        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
     },
     // thoughts subdocument 
     thoughts: [
         {
             // get the thought object ID from the Thought model for each thought posted
             type: Schema.Types.ObjectId,
-            ref: 'Thought'
-        }
+            ref: 'Thought',
+        },
     ],
     // friends subdocument
     friends: [
         {
             // get the User object ID from the User model for each friend
             type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
+            ref: 'User',
+        },
     ]
 },
 {
     toJSON: {
-        getters: true
+        getters: true,
+        virtuals: true,
     },
-    id: false
+    id: false,
 });
 
 // virtual returns total friend count for each user
